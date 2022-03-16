@@ -1,24 +1,57 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+
+function Home() {
+  return (
+    <main style={{ padding: "1rem 0" }}>
+      <h2>App</h2>
+    </main>
+  );
+}
+
+function Expenses() {
+  return (
+    <main style={{ padding: "1rem 0" }}>
+      <h2>Expenses</h2>
+    </main>
+  );
+}
+
+function Invoices() {
+  return (
+    <main style={{ padding: "1rem 0" }}>
+      <h2>Invoices</h2>
+    </main>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React, okay?
-        </a>
-      </header>
-    </div>
+    <>
+
+      <BrowserRouter>
+        <div>
+          <h1>Bookkeeper</h1>
+          <nav
+            style={{
+              borderBottom: "solid 1px",
+              paddingBottom: "1rem",
+            }}
+          >
+            <Link to="/">Home</Link> |{" "}
+            <Link to="/invoices">Invoices</Link> |{" "}
+            <Link to="/expenses">Expenses</Link>
+          </nav>
+        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="expenses" element={<Expenses />} />
+          <Route path="invoices" element={<Invoices />} />
+        </Routes>
+      </BrowserRouter>
+
+    </>
   );
 }
 
