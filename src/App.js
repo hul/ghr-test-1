@@ -30,7 +30,7 @@ function App() {
   return (
     <>
 
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <div>
           <h1>Bookkeeper</h1>
           <nav
